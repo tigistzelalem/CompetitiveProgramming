@@ -5,12 +5,12 @@ class Solution:
         lis.sort(reverse=True)
         initial = len(arr)
         target = len(arr)//2
-        minz = 0
+        mini = 0
         for i in lis:
             if initial > target:
                 initial -=i
-                minz +=1
+                mini +=1
             else:
                 break
-        return minz
+        return mini
     
