@@ -3,22 +3,20 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        if m == 0:
-            nums1[:] = nums2[:]
-        if n == 0:
-            return
-        p1 = 0
-        p2 = 0
-        arr = []
-        while p1 < m and p2 < n:
-            if nums1[p1] < nums2[p2]:
-                arr.append(nums1[p1])
-                p1 += 1
+        last = (n + m) - 1
+        p1 = m -1
+        p2 = n - 1
+        
+        while p1 > -1 and p2 > -1:
+            if nums1[p1] > nums2[p2]:
+                nums1[last] = nums1[p1]
+                p1 -= 1
             else:
-                arr.append(nums2[p2])
-                p2 +=1
-        for i in range(p1, m):
-            arr.append(nums1[i])
-        for i in range(p2, n):
-            arr.append(nums2[i])
-        nums1[:] = arr[:]
+                nums1[last] = nums2[p2]
+                p2 -= 1
+            last -= 1
+            
+        if p2 > -1:
+            nums1[:p2 + 1] = nums2[:p2 + 1]
+            
+                
