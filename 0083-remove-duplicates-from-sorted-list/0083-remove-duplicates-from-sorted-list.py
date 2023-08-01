@@ -8,16 +8,18 @@ class Solution:
         if not head:
             return head
         prev = None
-        unique = set()
-        curr = head
-        while curr:
-            if  curr.val in unique:
-                prev.next = curr.next
+        cur = head
+        res = set()
+        
+        while cur:
+            if cur.val in res:
+                prev.next = cur.next
             else:
-                unique.add(curr.val)
-                prev = curr
-            curr = curr.next
+                res.add(cur.val)
+                prev = cur
+            cur = cur.next
         return head
+                
 
                 
             
