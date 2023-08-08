@@ -8,14 +8,12 @@ class Solution:
         if not head or not head.next:
             return True
 
-        # Find the middle node of the linked list
         slow = head
         fast = head
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
 
-        # Reverse the second half of the linked list
         prev = None
         current = slow
         while current:
@@ -24,7 +22,6 @@ class Solution:
             prev = current
             current = next_node
 
-        # Traverse the reversed second half of the linked list, comparing it to the first half
         current1 = head
         current2 = prev
         while current1 and current2:
