@@ -5,8 +5,7 @@ class Solution:
         count = Counter(s)
         seen = set()
         
-      
-        
+
         for char in s:
             if char in seen:
                 count[char] -= 1
