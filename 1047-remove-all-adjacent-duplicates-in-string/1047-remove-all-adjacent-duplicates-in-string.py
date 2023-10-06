@@ -1,6 +1,5 @@
 class Solution:
     def removeDuplicates(self, s: str) -> str:
-        
         stack = []
         
         for c in s:
@@ -8,7 +7,10 @@ class Solution:
                 stack.pop()
             else:
                 stack.append(c)
-        return ''.join(stack)
-        
-        
                 
+        return ''.join(stack)
+            
+        
+
+        
+  
