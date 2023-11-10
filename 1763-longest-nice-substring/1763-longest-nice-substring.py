@@ -1,21 +1,17 @@
 class Solution:
     def longestNiceSubstring(self, s: str) -> str:
         
-        if len(s) < 2:
-            return ''
-
-        seen = set(s)
+        max_len = 0
+        result = ""
 
         for i in range(len(s)):
-            if s[i].lower() in seen and s[i].upper() in seen: 
-                continue
+            for j in range(i + max_len, len(s)):
+                substring = s[i:j + 1]
+                if all(c.swapcase() in substring for c in substring) and j - i + 1 > max_len:
+                    max_len = j - i + 1
+                    result = substring
 
-            left = self.longestNiceSubstring(s[:i])
-            right = self.longestNiceSubstring(s[i + 1:])
+        return result
 
-            return max(left, right, key=len)
-        
-        return s
-       
             
             
