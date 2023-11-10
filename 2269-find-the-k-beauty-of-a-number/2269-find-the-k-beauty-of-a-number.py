@@ -6,12 +6,10 @@ class Solution:
         
         for i in range(len(num_str) - k + 1):
             substr = num_str[i:i+k]
-            
-            if substr[0] != 0:
-                subnum = int(substr)
+            subnum = int(substr)
                 
-                if subnum != 0 and num % subnum == 0:
-                    count += 1
+            if subnum != 0 and num % subnum == 0:
+                count += 1
                     
         return count
         
